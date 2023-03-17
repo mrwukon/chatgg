@@ -21,9 +21,9 @@ int main(int argc,char *argv[])
   int sockfd;
   if ( (sockfd = socket(AF_INET,SOCK_STREAM,0))==-1) { perror("socket"); return -1; }
  
-  // 第2步：向服务器发起连接请求。
+  
   struct hostent* h;
-  if ( (h = gethostbyname(argv[1])) == 0 )   // 指定服务端的ip地址。
+  if ( (h = gethostbyname(argv[1])) == 0 )   // 指
   { printf("gethostbyname failed.\n"); close(sockfd); return -1; }
   struct sockaddr_in servaddr;
   memset(&servaddr,0,sizeof(servaddr));
@@ -35,7 +35,7 @@ int main(int argc,char *argv[])
  
   char buffer[1024];
  
-  // 第3步：与服务端通信，发送一个报文后等待回复，然后再发下一个报文。
+  //
   for (int ii=0;ii<3;ii++)
   {
     int iret;
