@@ -100,16 +100,7 @@ void *mainfunc1(void *arg)
     newclient(arg);
     pthread_exit(0);
 }
-/**
- * 将文件描述符 fd 添加到 epollfd 标示的内核事件表中,
- * 并注册 EPOLLIN 和 EPOOLET 事件,
- * EPOLLIN 是数据可读事件；EPOOLET 表明是 ET 工作方式。
- * 最后将文件描述符设置非阻塞方式
- * @param epollfd:epoll句柄
- * @param fd:文件描述符
- * @param enable_et:enable_et = true,
- * 是否采用epoll的ET(边缘触发)工作方式；否则采用LT(水平触发)工作方式
- */
+
 void addfd(int epollfd, int fd, bool enable_et) {
     struct epoll_event ev;
     ev.data.fd = fd;
